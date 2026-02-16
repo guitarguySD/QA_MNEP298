@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should preserve payment amount when clicking on case details', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25jv253');

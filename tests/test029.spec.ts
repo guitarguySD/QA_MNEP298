@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should accept payment amount and navigate to payment page', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25jv253');

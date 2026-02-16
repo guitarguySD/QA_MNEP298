@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should display driver\'s license form after returning from case search', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Driver\'s License Number' }).check();
   await page.locator('#DriversLicenseNumber').click();

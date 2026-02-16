@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should display unable to make payment message for unpayable case', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('66-T3-95-006846');

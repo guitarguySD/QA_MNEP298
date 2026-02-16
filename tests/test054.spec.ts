@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should display section symbol correctly without encoding issues', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.getByRole('radio', { name: 'Citation Number' }).check();
   await page.locator('#CitationNumber').click();

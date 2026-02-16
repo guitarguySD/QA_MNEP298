@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should add and remove case from cart', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('43vb254');

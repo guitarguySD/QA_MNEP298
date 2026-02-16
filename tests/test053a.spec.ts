@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should not show both Case Details and Not Found error simultaneously', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('40-VB-25-3');

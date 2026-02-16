@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should display Search Again button in case details after selecting a party', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25JV253');

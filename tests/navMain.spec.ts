@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should display all main navigation elements and footer text', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await expect(page.getByRole('link', { name: 'Minnesota Judicial Branch' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'MN Court Payment Center' })).toBeVisible();

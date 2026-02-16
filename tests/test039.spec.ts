@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('should open all footer links in new windows with correct URLs', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await expect(page.getByRole('link', { name: 'Help (opens in new window)' })).toBeVisible();
