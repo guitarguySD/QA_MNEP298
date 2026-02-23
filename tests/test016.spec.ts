@@ -7,5 +7,5 @@ test('should display Search Again button in case details after selecting a party
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
   await page.getByRole('radio', { name: 'Goodhue County Health and' }).check();
   await page.getByRole('button', { name: 'Continue with selected party' }).click();
-  await expect(page.getByLabel('Cancel and return to previous')).toContainText('Search Again');
+  await expect(page.getByLabel('Search Again')).toContainText('Search Again');
 });
