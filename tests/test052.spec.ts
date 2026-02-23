@@ -18,7 +18,7 @@ await expect(link).toHaveAttribute(
 );
 
 const contactCourtRegion = page.getByRole('region', {
-  name: 'Contact Court Administration'
+  name: 'Unable to Make Payment'
 });
 
 await expect(contactCourtRegion).toContainText(

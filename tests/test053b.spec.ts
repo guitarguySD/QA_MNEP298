@@ -11,5 +11,5 @@ const link = page.locator(
 );
 
   await expect(link).toHaveCount(1);
-  await expect(link).toHaveText('View other payable cases or citations');
+  await expect(link).toHaveText('You may have other payable cases or citations. Click to view');
 });

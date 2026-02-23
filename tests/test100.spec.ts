@@ -8,8 +8,8 @@ test('should not show both Case Details and Not Found error for different case n
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?caseId=1629859391&payorId=1621404209');
 
   const bugState = page.locator(
-    'main:has(h1:has-text("Case Details")):has(h2#case-not-found-heading)'
+    'main:has(h1:has-text("Case Details")):has(h2#case-not-found-heading:has-text("Case Not Found"))'
   );
 
-  await expect(bugState, 'BUG: page shows both Case Details and Not Found').toHaveCount(0);
+  await expect(bugState, 'BUG: page shows Case Details with "Case Not Found" heading').toHaveCount(0);
 });

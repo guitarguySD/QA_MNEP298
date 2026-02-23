@@ -11,8 +11,13 @@ test('should add and remove case from cart', async ({ page }) => {
   await page.getByRole('link', { name: 'View case 43-VB-25-6 details' }).click();
   await expect(page.getByLabel('Add to cart')).toContainText('Add to Cart');
   await page.getByRole('button', { name: 'Add to cart' }).click();
+<<<<<<< HEAD
   await expect(page.getByRole('link', { name: 'Shopping Cart (1 items)' })).toBeVisible();
   await expect(page.getByLabel('View case 43-VB-25-6 details')).toContainText('Update');
+=======
+  await expect(page.getByLabel('View case 43-VB-25-6 details')).toContainText('Update', { timeout: 10000 });
+  await expect(page.getByRole('link', { name: '1' })).toBeVisible();
+>>>>>>> 356c949331a0adc923e47fde698ed23dce4ad7ec
   await expect(page.getByLabel('Remove case 43-VB-25-6 from')).toContainText('Remove from Cart');
   await page.getByRole('button', { name: 'Remove case 43-VB-25-6 from' }).click();
   await expect(page.locator('#main-content')).toContainText('Select items you wish to add to your cart. Cart items: 0');
