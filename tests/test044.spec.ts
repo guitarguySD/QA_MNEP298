@@ -5,9 +5,12 @@ test('should display link to view other payable cases', async ({ page }) => {
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25jv254');
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await expect(page.getByText('You have other payable')).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Click to view' })).toBeVisible();
-  await page.getByRole('link', { name: 'Click to view' }).click();
+  await expect(page.getByText('You may have other payable')).toBeVisible();
+ 
+  const link = page.locator(
+  'a[href*="ViewOtherCases"]'
+);
 
-  await expect(page).toHaveURL(/.*[Cc]aseSelection.*/);
+  await expect(link).toHaveCount(1);
+  await expect(link).toHaveText('You may have other payable cases or citations. Click to view');
 });

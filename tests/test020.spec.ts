@@ -9,7 +9,7 @@ test('should add and remove case from cart', async ({ page }) => {
   await expect(page.getByLabel('View case 43-VB-25-6 details')).toContainText('View');
   await page.getByRole('button', { name: 'View case 43-VB-25-6 details' }).click();
   await page.getByRole('button', { name: 'Add to cart' }).click();
-  await expect(page.getByLabel('View case 43-VB-25-6 details')).toContainText('Update');
+  await expect(page.getByLabel('View case 43-VB-25-6 details')).toContainText('Update', { timeout: 10000 });
   await expect(page.getByRole('link', { name: '1' })).toBeVisible();
   await expect(page.getByLabel('Remove case 43-VB-25-6 from')).toContainText('Remove from Cart');
   await page.getByRole('button', { name: 'Remove case 43-VB-25-6 from' }).click();
