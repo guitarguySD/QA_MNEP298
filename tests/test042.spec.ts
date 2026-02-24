@@ -7,8 +7,8 @@ test('should display important notice with correct styling and color', async ({ 
   await page.locator('#CitationNumber').fill('32820250810');
   await page.getByRole('button', { name: 'Find cases by citation number' }).click();
   
-  let locator = page.locator('p').filter({ hasText: 'If your name is not listed or' });
-  await expect(locator).toHaveClass(/sn-note-important/);
+  let locator = page.locator('p').filter({ hasText: 'If your case is not listed' });
+  await expect(locator).toHaveClass(/sn-note sn-note-important/);
   let checkColor = await locator.evaluate(el => window.getComputedStyle(el).color);
   await expect(checkColor).toBe('rgb(151, 108, 24)');
  });

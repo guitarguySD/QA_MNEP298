@@ -5,7 +5,7 @@ test('should display payment form with all required elements', async ({ page }) 
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25jv253');
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.getByRole('row', { name: 'Name Not Available Name Not Available, Amount owed: $250.00 $' }).getByLabel('Name Not Available').check();
+  await page.locator('tr').filter({ hasText: '$250.00' }).getByRole('radio').check();
   await page.getByRole('button', { name: 'Continue with selected party' }).click();
   await expect(page.locator('#paymentForm')).toMatchAriaSnapshot(`
     - text: Make a Payment of
@@ -13,7 +13,7 @@ test('should display payment form with all required elements', async ({ page }) 
     - alert
     - text: /\\$\\d+\\.\\d+ Minimum/
     - paragraph: "Please Note: To make a payment, you are leaving the Minnesota Judicial Branch website."
-    - button "Cancel and return to previous page"
+    - link "Search Again"
     - button "Pay now for this case"
     `);
 });
