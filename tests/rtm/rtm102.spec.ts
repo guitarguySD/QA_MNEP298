@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Search by citation number Adult Criminal', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Citation Number' }).check();
   await page.getByRole('textbox', { name: 'Citation Number' }).click();
@@ -8,7 +8,11 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Find cases by citation number' }).click();
   await expect(page.locator('#main-content')).toContainText('51920250823');
   await expect(page.locator('#main-content')).toContainText('Crim/Traf Non-Mand');
-  await page.getByRole('link', { name: 'Search Again' }).click();
+});
+
+
+test('Search by citation number Juvenile Criminal', async ({ page }) => {
+  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Citation Number' }).check();
   await page.getByRole('textbox', { name: 'Citation Number' }).click();
   await page.getByRole('textbox', { name: 'Citation Number' }).fill('061820251032');

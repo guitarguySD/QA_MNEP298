@@ -1,62 +1,53 @@
 import { test, expect } from '@playwright/test';
 
-test('Unable to make payment Active warrant', async ({ page }) => {
+test('Unable to make payment Active warrant Adult Criminal', async ({ page }) => {
+  const caseNumber = '25CR2513';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('69VIVB251');
+  await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
+  await expect(page.locator('#active-warrant-heading')).toContainText('Unable to Make Payment - Active Warrant');
+});
+
+test('Unable to make payment Active warrant Non-criminal', async ({ page }) => {
+  const caseNumber = '70CV2550';
+  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('25FA2514');
+  await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.getByRole('radio', { name: 'Testing, Respondent' }).check();
+  await page.getByRole('radio', { name: 'Warrant, Active' }).check();
   await page.getByRole('button', { name: 'Continue with selected party' }).click();
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
+  await expect(page.locator('#active-warrant-heading')).toContainText('Unable to Make Payment - Active Warrant');
+});
+
+test('Unable to make payment Active warrant Single-case', async ({ page }) => {
+  const caseNumber = '72VB2510';
+  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('02FA254');
+  await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.getByRole('radio', { name: 'Petitioner, Test' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
+  await expect(page.locator('#active-warrant-heading')).toContainText('Unable to Make Payment - Active Warrant');
+});
+
+test('Unable to make payment Active warrant Mutli-case', async ({ page }) => {
+  const caseNumber = '72VB2511';
+  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('18FA255');
+  await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.getByRole('radio', { name: 'Testing, Respondent For' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
+  await expect(page.locator('#active-warrant-heading')).toContainText('Unable to Make Payment - Active Warrant');
+});
+
+test('Unable to make payment Active warrant Multi-case 2', async ({ page }) => {
+  const caseNumber = '72VB2512';
+  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('70vb2551');
+  await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?paymentPlanId=1610909524&payorId=1621404227');
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
-  await page.getByRole('radio', { name: 'Case Number' }).check();
-  await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('18FA256');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.getByRole('radio', { name: 'Referral, Test Collection' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
-  await page.getByRole('radio', { name: 'Case Number' }).check();
-  await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('70vb2552');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?paymentPlanId=1610908470&payorId=1621404227');
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
-  await page.getByRole('link', { name: 'Search Again' }).click();
-  await page.getByRole('radio', { name: 'Case Number' }).check();
-  await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('70vb2553');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
-  await expect(page.locator('#referred-collection-heading')).toContainText('Active Warrant - Unable to Make Payment');
+  await expect(page.locator('#active-warrant-heading')).toContainText('Unable to Make Payment - Active Warrant');
 });
