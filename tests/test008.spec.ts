@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Should display "Enter Driver\'s License Number" on all search pages', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
