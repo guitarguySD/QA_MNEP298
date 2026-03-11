@@ -7,7 +7,7 @@ test('should search by case number and verify case number and citation number', 
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill(caseNumber);
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await expect(page.locator('#main-content')).toContainText(citationNumber);
   
   // Verify the case number matches (ignoring dashes)

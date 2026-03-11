@@ -3,9 +3,9 @@ import { test, expect } from '@playwright/test';
 test('should add and remove case from cart, verify "view" "update" "remove from cart" "add to cart" buttons', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
-  await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('43vb254');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).fill('43vb254');
+  await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('link', { name: 'View other payable citations' }).click();
   await expect(page.getByLabel('View case 43-VB-25-6 details')).toContainText('View');
   await page.getByRole('link', { name: 'View case 43-VB-25-6 details' }).click();

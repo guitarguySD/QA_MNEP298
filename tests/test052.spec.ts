@@ -4,7 +4,7 @@ test('should display unable to make payment message for unpayable case', async (
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('66-T3-95-006846');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
 
   await expect(page.getByRole('heading', { name: 'Unable to Make Payment' })).toBeVisible();
 

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-
+/*
 test('Payment sent to collections Criminal old', async ({ page }) => {
   const caseNumber = '43vb258';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
@@ -12,7 +12,7 @@ test('Payment sent to collections Criminal old', async ({ page }) => {
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
   //await expect(page.locator('#make-payment-heading')).toContainText('Make Payment');
 });
-
+*/
 
 test('Payment sent to collections Adult Criminal', async ({ page }) => {
   const caseNumber = '69VIVB251';
@@ -33,7 +33,7 @@ test('Payment sent to collections Non-criminal', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Testing, Respondent' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
   
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
@@ -46,7 +46,7 @@ test('Payment sent to collections Non-criminal 2', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Respondent, Test' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
   
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
@@ -59,10 +59,11 @@ test('Payment sent to collections Non-criminal 3', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Testing, Respondent For' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
 
+/*
 test('Payment sent to collections Non-criminal old', async ({ page }) => {
   const caseNumber = '25FA2515';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
@@ -73,6 +74,7 @@ test('Payment sent to collections Non-criminal old', async ({ page }) => {
  
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
+*/
 
 test('Payment sent to collections Single-case', async ({ page }) => {
   const caseNumber = '70VB2551';
@@ -85,7 +87,7 @@ test('Payment sent to collections Single-case', async ({ page }) => {
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
 
-
+/*
 test('Payment sent to collections Single-case old', async ({ page }) => {
   const caseNumber = '43VB259';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
@@ -96,6 +98,7 @@ test('Payment sent to collections Single-case old', async ({ page }) => {
  
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
+*/
 
 test('Payment sent to collections Multi-case', async ({ page }) => {
   const caseNumber = '70VB2552';
@@ -119,6 +122,7 @@ test('Payment sent to collections Multi-case 2', async ({ page }) => {
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
 });
 
+/*
 test('Payment sent to collections Multi-case old', async ({ page }) => {
   const caseNumber = '43VB2510';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
@@ -142,7 +146,7 @@ test('Payment sent to collections Multi-case old 2', async ({ page }) => {
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
   //await expect(page.locator('#make-payment-heading')).toContainText('Make Payment');
 });
-
+*/
 
 test('Payment sent to collections Non-criminal single-case', async ({ page }) => {
   const caseNumber = '18FA256';
@@ -152,7 +156,7 @@ test('Payment sent to collections Non-criminal single-case', async ({ page }) =>
   await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Referral, Test Collection' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
 
   await expect(page.locator('#referred-collection-heading')).toContainText('Unable to Make Payment – Referred to Collection');
   //await expect(page.locator('#make-payment-heading')).toContainText('Make Payment');

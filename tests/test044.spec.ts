@@ -4,7 +4,7 @@ test('should display link to view other payable cases', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25jv254');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await expect(page.getByText('You may have other payable')).toBeVisible();
  
   const link = page.locator(

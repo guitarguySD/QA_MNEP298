@@ -4,7 +4,7 @@ test('should not show both Case Details and Not Found error for different case n
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.locator('#CaseNumber').click();
   await page.locator('#CaseNumber').fill('25-JV-25-4');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?caseId=1629859391&payorId=1621404209');
 
   const bugState = page.locator(

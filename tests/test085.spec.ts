@@ -4,9 +4,9 @@ test('Payment Plan Payment messaging', async ({ page }) => {
   const caseNumber = '72vb258';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
-  await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).fill(caseNumber);
+  await page.getByRole('button', { name: 'Find' }).click();
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?paymentPlanId=1610908467&payorId=1621404217');
   await expect(page.getByLabel('Make Payment Plan Payment')).toContainText('This case is covered by a payment plan. One payment plan can cover multiple cases.');
   await expect(page.getByLabel('Make Payment Plan Payment')).toMatchAriaSnapshot(`

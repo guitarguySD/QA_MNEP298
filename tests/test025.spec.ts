@@ -5,7 +5,7 @@ test('should display Search Results heading after searching by citation number',
   await page.getByRole('radio', { name: 'Citation Number' }).check();
   await page.getByRole('textbox', { name: 'Enter Citation Number' }).click();
   await page.getByRole('textbox', { name: 'Enter Citation Number' }).fill('5520251245');
-  await page.getByRole('button', { name: 'Find cases by citation number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await expect(page.locator('h1')).toContainText('Case Details');
 });
 
@@ -14,6 +14,6 @@ test('should display Search Results heading after searching by citation number 2
   await page.getByRole('radio', { name: 'Citation Number' }).check();
   await page.getByRole('textbox', { name: 'Citation Number' }).click();
   await page.getByRole('textbox', { name: 'Citation Number' }).fill('5520251245');
-  await page.getByRole('button', { name: 'Find cases by citation number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await expect(page.locator('h1')).toContainText('Case Details');
 });

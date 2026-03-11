@@ -5,7 +5,7 @@ test('should display important notice with correct styling and color', async ({ 
   await page.getByRole('radio', { name: 'Citation Number' }).check();
   await page.locator('#CitationNumber').click();
   await page.locator('#CitationNumber').fill('32820250810');
-  await page.getByRole('button', { name: 'Find cases by citation number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   
   let locator = page.locator('p').filter({ hasText: 'If your case is not listed' });
   await expect(locator).toHaveClass(/sn-note sn-note-important/);

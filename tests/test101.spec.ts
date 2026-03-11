@@ -2,12 +2,12 @@ import { test, expect } from '@playwright/test';
 
 test('Alt Text on HPS header logo', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
-  await page.getByRole('textbox', { name: 'Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Case Number' }).fill('25jv253');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).fill('25jv253');
+  await page.getByRole('button', { name: 'Find' }).click();
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/PartySelection');
   await page.getByRole('row', { name: 'Name Not Displayed Name Not Displayed, Amount owed: $55.00 $' }).getByLabel('Name Not Displayed').check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
   await page.getByRole('spinbutton', { name: 'Make a Payment of' }).click();
   await page.getByRole('spinbutton', { name: 'Make a Payment of' }).click();
   await page.getByRole('spinbutton', { name: 'Make a Payment of' }).fill('1');
