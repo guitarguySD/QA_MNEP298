@@ -20,10 +20,12 @@ test('Payment form disclosure on leaving Minnesota website 2', async ({ page }) 
 */
 
 test('Payment form disclosure on leaving Minnesota website', async ({ page }) => {
+  const caseNumber = '25jv253';
+
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
-  await page.getByRole('textbox', { name: 'Enter Case Number' }).fill('25jv253');
+  await page.getByRole('textbox', { name: 'Enter Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('row', { name: 'Name Not Displayed Name Not Displayed, Amount owed: $250.00 $' }).getByLabel('Name Not Displayed').check();
   await page.getByRole('button', { name: 'Continue' }).click();
@@ -38,6 +40,6 @@ test('Payment form disclosure on leaving Minnesota website', async ({ page }) =>
       - text: To make a payment, you are leaving the Minnesota Judicial Branch website.
     - link "Search Again":
       - /url: /MNPaymentApplication/
-    - button "Pay now for this case"
+    - button "Pay Now"
     `);
 });
