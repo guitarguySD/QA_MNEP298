@@ -7,6 +7,9 @@ test('case requires court contact', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Case Number' }).click();
   await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
+  
+  await page.getByRole('radio', { name: 'Testing, Defendant' }).check();
+  await page.getByRole('button', { name: 'Continue' }).click();
 
   await expect(page.locator('#main-content')).toContainText('$0.00');
   await expect(page.locator('#main-content')).toContainText(caseNumber);
