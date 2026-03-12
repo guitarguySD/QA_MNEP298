@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Payor does not owe money', async ({ page }) => {
-  const caseNumber = '25-JV-25-6';
+  const caseNumber = '11-JV-26-2';
   
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.getByRole('textbox', { name: 'Case Number' }).click();
