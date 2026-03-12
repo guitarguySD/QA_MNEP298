@@ -4,7 +4,7 @@ test('Payor does not owe money', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.getByRole('textbox', { name: 'Case Number' }).click();
   await page.getByRole('textbox', { name: 'Case Number' }).fill('40-VB-25-3');
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await expect(page.locator('#main-content')).toContainText('$0.00');
   await expect(page.getByRole('heading', { name: 'Unable to Make Payment' })).toBeVisible();
   await expect(page.locator('#main-content')).toContainText('40-VB-25-3');

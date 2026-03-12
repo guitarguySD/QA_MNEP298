@@ -8,9 +8,9 @@ test('Bulk search, case information is summarized', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Minnesota (MN)' }).click();
   await page.getByRole('option', { name: 'Minnesota (MN)' }).click();
   await page.getByRole('textbox', { name: 'Date of Birth' }).fill('1980-01-01');
-  await page.getByRole('button', { name: 'Find cases by driver\'s' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Search, DL' }).check();
-  await page.getByRole('button', { name: 'Continue with selected party' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
   await expect(page.locator('h1')).toContainText('Search Results');
   await expect(page.locator('#main-content')).toMatchAriaSnapshot(`- paragraph: Your search returned multiple results. Select a case for the case details.`);
   await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
@@ -60,4 +60,19 @@ test('Bulk search, case information is summarized', async ({ page }) => {
         - row:
           - cell
     `);
+});
+
+
+test('test', async ({ page }) => {
+  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
+  await page.getByRole('radio', { name: 'Driver\'s License Number' }).check();
+  await page.getByRole('textbox', { name: 'Enter Driver\'s License Number' }).click();
+  await page.getByRole('textbox', { name: 'Enter Driver\'s License Number' }).fill('D519202508234');
+  await page.getByRole('textbox', { name: 'Minnesota (MN)' }).click();
+  await page.getByRole('option', { name: 'Minnesota (MN)' }).click();
+  await page.getByRole('textbox', { name: 'Date of Birth' }).fill('1980-01-01');
+  await page.getByRole('button', { name: 'Find' }).click();
+  await page.getByRole('link', { name: 'View case 70-VB-25-38 details' }).click();
+  await page.getByRole('link', { name: 'Return to Search Results' }).click();
+  await page.getByRole('link', { name: 'View case 70-VB-25-39 details' }).click();
 });

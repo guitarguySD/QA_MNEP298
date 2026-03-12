@@ -11,7 +11,7 @@ test('Alt Text on HPS header logo', async ({ page }) => {
   await page.getByRole('spinbutton', { name: 'Make a Payment of' }).click();
   await page.getByRole('spinbutton', { name: 'Make a Payment of' }).click();
   await page.getByRole('spinbutton', { name: 'Make a Payment of' }).fill('1');
-  await page.getByRole('button', { name: 'Pay now for this case' }).click();
+  await page.getByRole('button', { name: 'Pay now' }).click();
   await page.goto('https://staging.heartlandpaymentservices.net/webpayments/MNCourts_Test/token/10938c83-31cb-41b4-a4e8-5a7b73618f86');
   await expect(page.getByRole('img', { name: 'Minnesota Judicial Branch' })).toBeVisible();
 });

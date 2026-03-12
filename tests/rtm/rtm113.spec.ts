@@ -6,7 +6,7 @@ test('case requires court contact', async ({ page }) => {
   await page.goto('https://qa3customer.sonant.com/mnpaymentapplication');
   await page.getByRole('textbox', { name: 'Case Number' }).click();
   await page.getByRole('textbox', { name: 'Case Number' }).fill(caseNumber);
-  await page.getByRole('button', { name: 'Find cases by case number' }).click();
+  await page.getByRole('button', { name: 'Find' }).click();
 
 
   await expect(page.locator('#main-content')).toContainText(caseNumber);
