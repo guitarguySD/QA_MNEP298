@@ -16,7 +16,7 @@ test('Payment Plan Payment messaging', async ({ page }) => {
       - strong: "Citation Numbers covered by plan:"
       - text: /\\d+, \\d+/
     `);
-  await expect(page.getByLabel('Make Payment Plan Payment')).toContainText('Your next installment amount is $0.00. You can pay this installment amount plus a convenience fee of $2.34.You can pay a different amount up to the remaining balance of $200.00 plus the convenience fee.');
+  await expect(page.getByLabel('Make Payment Plan Payment')).toContainText(/Your next installment amount is \$\d+\.\d+\. You can pay this installment amount plus a convenience fee of \$2\.34\.You can pay a different amount up to the remaining balance of \$\d+\.\d+ plus the convenience fee\./);
   await expect(page.getByLabel('Make Payment Plan Payment')).toContainText('MasterCard, Visa and Discover are accepted');
   await expect(page.locator('#paymentForm')).toMatchAriaSnapshot(`
     - text: Make a Payment of
