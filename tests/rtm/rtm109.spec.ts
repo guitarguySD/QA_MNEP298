@@ -37,7 +37,7 @@ test('Other payable cases Non-Criminal', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
   await page.getByRole('textbox', { name: 'Enter Case Number' }).fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
-  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/PartySelection');
+  // await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/PartySelection');
   await page.getByRole('radio', { name: 'testing, defendant' }).check();
   await page.getByRole('button', { name: 'Continue' }).click();
   await expect(page.getByRole('paragraph').filter({ hasText: 'You may have other payable' })).toBeVisible();

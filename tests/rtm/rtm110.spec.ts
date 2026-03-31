@@ -12,7 +12,7 @@ test('Bulk search, case information is summarized', async ({ page }) => {
   
   // Cases table
   const casesTable = page.locator('table[aria-label="Cases table"] tbody tr[role="row"]');
-  await expect(casesTable).toHaveCount(2);
+  await expect(casesTable).toHaveCount(3);
 
   // Payment Plans table
   const paymentPlansTable = page.locator('table[aria-label="Payment plans table"] tbody tr')

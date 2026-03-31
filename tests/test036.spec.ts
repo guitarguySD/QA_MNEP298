@@ -29,7 +29,6 @@ test('Payment form disclosure on leaving Minnesota website', async ({ page }) =>
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('row', { name: 'Name Not Displayed Name Not Displayed, Amount owed: $250.00 $' }).getByLabel('Name Not Displayed').check();
   await page.getByRole('button', { name: 'Continue' }).click();
-  await expect(page.locator('#paymentForm')).toContainText('Please Note: To make a payment, you are leaving the Minnesota Judicial Branch website.');
   await expect(page.locator('#paymentForm')).toMatchAriaSnapshot(`
     - text: Make a Payment of
     - spinbutton "Make a Payment of"
@@ -37,9 +36,9 @@ test('Payment form disclosure on leaving Minnesota website', async ({ page }) =>
     - text: /\\$\\d+\\.\\d+ Minimum/
     - paragraph:
       - strong: "Please Note:"
-      - text: To make a payment, you are leaving the Minnesota Judicial Branch website.
-    - link "Search Again":
-      - /url: /MNPaymentApplication/
-    - button "Pay Now"
-    `);
+      - text: /A convenience fee of \\$\\d+\\.\\d+ will be added to this amount\\. To make a payment, you are leaving the Minnesota Judicial Branch website\\./
+    - link "Return to Party Selection":
+      - /url: /MNPaymentApplication/Case/PartySelection
+    - button /Pay Now \\$\\d+\\.\\d+\\. Total includes payment amount of \\$\\d+\\.\\d+ plus convenience fee of \\$\\d+\\.\\d+/
+  `);
 });

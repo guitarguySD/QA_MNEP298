@@ -5,7 +5,7 @@ test('Search page displays information for adult criminal case', async ({ page }
   await page.getByRole('textbox', { name: 'Case Number' }).click();
   await page.getByRole('textbox', { name: 'Enter Case Number' }).fill('70vb2539');
   await page.getByRole('button', { name: 'Find' }).click();
-  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?caseId=1629859308&payorId=1621404135');
+  // await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?caseId=1629859308&payorId=1621404135');
   await expect(page.locator('#main-content')).toContainText('Case Number:');
   await expect(page.locator('#main-content')).toContainText('70-VB-25-39');
   await expect(page.locator('#main-content')).toContainText('Citation Number:');
@@ -30,7 +30,7 @@ test('Search page displays information for juvenile case', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Enter Case Number' }).click();
   await page.getByRole('textbox', { name: 'Enter Case Number' }).fill('25jv254');
   await page.getByRole('button', { name: 'Find' }).click();
-  await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?caseId=1629859391&payorId=1621404209');
+  // await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/Case/CaseDetail?caseId=1629859391&payorId=1621404209');
   await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
     - text: "/Case Number: \\\\d+-JV-\\\\d+-4 Citation Number: \\\\d+ Party Name: Testing, Juvenile Party Connection: Child \\\\(Juvenile\\\\) Case Type: Juvenile Petty Offense Case Location: Goodhue Case Status: Closed Date Filed: \\\\d+\\\\/\\\\d+\\\\/\\\\d+ Offenses:/"
     - list:

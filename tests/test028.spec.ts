@@ -1,10 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test('should display no charges available message for both parties', async ({ page }) => {
+  const caseNumber = '25FA2514';
   await page.goto('https://qa3customer.sonant.com/MNPaymentApplication/');
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.locator('#CaseNumber').click();
-  await page.locator('#CaseNumber').fill('25FA2514');
+  await page.locator('#CaseNumber').fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Testing, Petitioner' }).check();
   await page.getByRole('button', { name: 'Continue' }).click();
@@ -13,7 +14,7 @@ test('should display no charges available message for both parties', async ({ pa
   await page.locator('#CaseNumber').click();
   await page.getByRole('radio', { name: 'Case Number' }).check();
   await page.locator('#CaseNumber').click();
-  await page.locator('#CaseNumber').fill('25FA2514');
+  await page.locator('#CaseNumber').fill(caseNumber);
   await page.getByRole('button', { name: 'Find' }).click();
   await page.getByRole('radio', { name: 'Testing, Respondent' }).check();
   await page.getByRole('button', { name: 'Continue' }).click();
