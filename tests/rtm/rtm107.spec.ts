@@ -8,7 +8,7 @@ test('Case not found message displayed correctly', async ({ page }) => {
   await page.getByRole('button', { name: 'Find' }).click();
   await expect(page.locator('#main-content')).toMatchAriaSnapshot(`
     - status:
-      - heading "No cases match your search." [level=2]
-      - paragraph: The case you are searching for may be unavailable or may not exist.
+      - heading "No Cases match your search." [level=2]
+      - paragraph: The Case you are searching for may be unavailable or may not exist.
     `);
 });
